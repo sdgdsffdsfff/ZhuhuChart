@@ -1,0 +1,55 @@
+<html>
+	<script src = "./static/js/Chart.js"></script>
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+   <link rel = "stylesheet" href = "./static/css/flat-ui.css">
+      <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./static/js/flat-ui.min.js"></script>
+    <script src="./static/js/application.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <head>
+    <title>知乎点赞分析</title>
+  </head>
+  <body>
+    <div id = "search" style="width:50%;height:auto;border:0px solid #000000;margin:0 auto;align:center">        
+         <!-- <div class="form-search"> -->
+          <form>
+             <input type="text" class="form-control input-hg" placeholder="知乎问题链接" style = "width:80%" id="url"/>          
+             <button type="submit" class="btn btn-hg btn-primary" id="submitBtn" onClick = "getUrl()"  style = "cursor:pointer">Search</button>
+         <!-- </form> -->
+        </div>
+    </div>   
+
+    <div style="width: 50%">
+        <canvas id="myChart" width="400" height="450"></canvas>
+	</div>
+  </body>
+  
+<script type = "text/javaScript">
+function getUrl()
+{
+   
+    //获取链接
+     url = $('#url').val();
+      console.log(url);
+    // posturl = "/url/"+url;
+    postdata(url);
+}
+
+function postdata(url)
+{
+    $.ajax({
+        type:"POST",
+        url:"/url",
+        data:{"url":url},
+        dataType:"json",
+        success:function(data)
+        {
+            console.log(data);
+        }
+    });
+}
+
+</script>
+</html>
