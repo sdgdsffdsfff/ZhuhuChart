@@ -45,18 +45,18 @@ class zhihuAnj():
     def anjPayLoad(self,payLoad):
 #         reg = re.compile(r'<[^>]+>', re.S)
 #         result = reg.sub('',payLoad)
+        print payLoad
         soup = BeautifulSoup(payLoad)
         name = soup.find('a',class_='zg-link')
         info = soup.find('span',class_='bio hidden-phone')
         status = soup.find('ul',class_='status')
-    
-        nameStr = "知乎用户"
-        infoStr = ""
-        like = 0
-        thank = 0
-        question = 0
-        answer = 0
-        if name:
+        nameStr = None
+        infoStr = None
+        like = None
+        thank = None
+        question = None
+        answer = None
+        if name!=None:
             nameStr = name.string
         else:
             nameStr = "知乎用户"
@@ -77,6 +77,7 @@ class zhihuAnj():
             thank = 0
             question = 0
             answer = 0
+        
         result = {'name':nameStr,'info':infoStr,'like':like,'thank':thank,'question':question,'answer':answer}
         print result
 #         print self.appendDic(result)
@@ -97,16 +98,9 @@ class zhihuAnj():
             for s in payLoad:
                 result = self.anjPayLoad(s)
                 self.appendDic(result)
-        return json.dumps(self.m_ret)
-#                 print result
-#                 if len(result)!=0:
-#                     try:
-#                         print "-------"
-#                         for r in result:
-#                             print r.string ,
-#                     except Exception,e:
-#                         print result
-#             print len(result)
+#         return json.dumps(self.m_ret)
+        return self.m_ret
+
         
 # if __name__ == '__main__':
 #      url = "http://www.zhihu.com/answer/23990424"

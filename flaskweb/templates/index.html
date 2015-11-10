@@ -14,14 +14,15 @@
   <body>
     <div id = "search" style="width:50%;height:auto;border:0px solid #000000;margin:0 auto;align:center">        
          <!-- <div class="form-search"> -->
-          <form>
+          <!--<form>-->
              <input type="text" class="form-control input-hg" placeholder="知乎问题链接" style = "width:80%" id="url"/>          
-             <button type="submit" class="btn btn-hg btn-primary" id="submitBtn" onClick = "getUrl()"  style = "cursor:pointer">Search</button>
-         <!-- </form> -->
+             <button class="btn btn-hg btn-primary" id="submitBtn" onClick = "getUrl()"  style = "cursor:pointer">Search</button>
+         <!--</form> --> 
         </div>
     </div>   
 
     <div style="width: 50%">
+         ssss
         <canvas id="myChart" width="400" height="450"></canvas>
 	</div>
   </body>
@@ -47,10 +48,35 @@ function postdata(url)
         success:function(data)
         {
             console.log(data);
-            alert('success')
+            //alert("success");
+            showPie(data);
         }
     });
 }
 
+function showPie(data)
+{
+		result = eval(data)
+		console.log(result['num'][0])
+		var pieData = [
+				{
+					value: result['num'][0],
+					color:"#F38630"
+				},
+				{
+					value : 50,
+					color : "#E0E4CC"
+				},
+				{
+					value : 100,
+					color : "#69D2E7"
+				}
+			
+			];
+
+	var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Pie(pieData);
+	
+	
+}
 </script>
 </html>

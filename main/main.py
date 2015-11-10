@@ -5,6 +5,7 @@ Created on
 '''
 import threading
 from zhihuAnj import zhihuAnj
+from brain import Brain
 import urllib2
 class ZhihuThread(threading.Thread):
     def __init__(self):
@@ -15,8 +16,9 @@ class ZhihuThread(threading.Thread):
 #         url = "http://www.zhihu.com/answer/23990424/voters_profile"
 #      test = zhihuAnj("http://www.zhihu.com/answer/23966524")
         test = zhihuAnj(url)
-        test.start();  
-       
+        ret = test.start();
+        brain = Brain(ret)  
+        print brain.getLike()
         
 if __name__ == '__main__':
     zhihuThread = ZhihuThread();

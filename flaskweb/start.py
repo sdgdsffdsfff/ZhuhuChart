@@ -5,6 +5,7 @@
 
 from flask import Flask,request,render_template
 from main.zhihuAnj  import zhihuAnj
+from main.brain import Brain
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,7 +18,9 @@ def zhihu():
     test = zhihuAnj(searchUrl)
     ret = test.start();  
     print ret
-    return ret
+    brain = Brain(ret)
+    
+    return brain.getLike()
 
 
 
