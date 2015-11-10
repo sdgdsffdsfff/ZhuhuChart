@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-  
 
 import urllib
+from json import JSONDecoder,JSONEncoder
 import json
-import re
-from flaskweb.start import zhihuAnj
+from bs4 import BeautifulSoup
 
 class zhihuAnj():
 
     def __init__(self,url):
         self.m_url = url;
+        self.m_ret = dict();
         
     def getHtml(self,url):
 #         url = "http://www.zhihu.com/answer/23966524"
@@ -37,16 +38,56 @@ class zhihuAnj():
             jsonRet = json.loads(html)
         except Exception,e:
             print e
+            return
         payLoad = jsonRet['payload']
         return payLoad
         
     def anjPayLoad(self,payLoad):
-#         reg = re.compile('r[\s\S]*?<div class="author ellipsis">[\s\S]*?>([\s\S]*?)</a>[\s\S]*?<span>([\s\S]*?)</span>[\s\S]*?<span>([\s\S]*?)</span>[\s\s]*?<a[\s\S]*?>([\s\S]*?)</a>[\s\S]*?target="_blank">([\s\S]*?)</a>')
-        reg = re.compile(r'<[^>]+>', re.S)
-        result = reg.sub('',payLoad)
-#         return result.replace("\r\n"," ");
-        return result.split()
+#         reg = re.compile(r'<[^>]+>', re.S)
+#         result = reg.sub('',payLoad)
+        soup = BeautifulSoup(payLoad)
+        name = soup.find('a',class_='zg-link')
+        info = soup.find('span',class_='bio hidden-phone')
+        status = soup.find('ul',class_='status')
     
+        nameStr = "知乎用户"
+        infoStr = ""
+        like = 0
+        thank = 0
+        question = 0
+        answer = 0
+        if name:
+            nameStr = name.string
+        else:
+            nameStr = "知乎用户"
+            
+        if info:
+            infoStr = info.string
+        else:
+            infoStr = ""
+            
+        if status:
+            statusStr = (status.text).split()
+            like = statusStr[0]
+            thank = statusStr[2]
+            question = statusStr[4]
+            answer = statusStr[6]
+        else:
+            like = 0
+            thank = 0
+            question = 0
+            answer = 0
+        result = {'name':nameStr,'info':infoStr,'like':like,'thank':thank,'question':question,'answer':answer}
+        print result
+#         print self.appendDic(result)
+        return result
+    
+    def appendDic(self,result):
+     
+        length = len(self.m_ret)
+        self.m_ret[length] = result
+        return self.m_ret
+        
     def start(self):
 #         ȡtotal,follow
         total,follows = self.getInfo(self.m_url+"/voters_profile")
@@ -55,12 +96,16 @@ class zhihuAnj():
             payLoad = self.getPayLoad(total, 10*i, follows)
             for s in payLoad:
                 result = self.anjPayLoad(s)
+                self.appendDic(result)
+        return json.dumps(self.m_ret)
 #                 print result
-                if len(result)!=0:
-                    try:
-                        print result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[9]
-                    except Exception,e:
-                        print result
+#                 if len(result)!=0:
+#                     try:
+#                         print "-------"
+#                         for r in result:
+#                             print r.string ,
+#                     except Exception,e:
+#                         print result
 #             print len(result)
         
 # if __name__ == '__main__':

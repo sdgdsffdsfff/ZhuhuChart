@@ -4,7 +4,7 @@
 '''
 
 from flask import Flask,request,render_template
-
+from main.zhihuAnj  import zhihuAnj
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,11 +12,12 @@ def hello_world():
     return render_template('index.html')
 
 @app.route('/url',methods=['GET', 'POST'])
-def zhihuAnj():
-    print request.form
+def zhihu():
     searchUrl = request.form["url"]
-    
-    return searchUrl
+    test = zhihuAnj(searchUrl)
+    ret = test.start();  
+    print ret
+    return ret
 
 
 

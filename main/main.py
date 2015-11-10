@@ -11,12 +11,12 @@ class ZhihuThread(threading.Thread):
         threading.Thread.__init__(self)
     
     def run(self):
-#         url = "http://www.zhihu.com/answer/23990424"
-        url = "http://www.zhihu.com/answer/23990424/voters_profile"
+        url = "http://www.zhihu.com/answer/24001938"
+#         url = "http://www.zhihu.com/answer/23990424/voters_profile"
 #      test = zhihuAnj("http://www.zhihu.com/answer/23966524")
-#         test = zhihuAnj(url)
-#         test.start();  
-        print urllib2.urlopen("http://www.baidu.com").read()
+        test = zhihuAnj(url)
+        test.start();  
+       
         
 if __name__ == '__main__':
     zhihuThread = ZhihuThread();
