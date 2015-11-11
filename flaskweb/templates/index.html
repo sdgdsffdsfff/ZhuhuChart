@@ -9,7 +9,7 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <head>
-    <title>知乎点赞分析</title>
+    <title>知乎点赞用户分析</title>
   </head>
   <body>
     <div id = "search" style="width:50%;height:auto;border:0px solid #000000;margin:0 auto;align:center">        
@@ -19,15 +19,46 @@
              <button class="btn btn-hg btn-primary" id="submitBtn" onClick = "getUrl()"  style = "cursor:pointer">Search</button>
          <!--</form> --> 
         </div>
-    </div>   
+   </div>   
+   <div id = "chart" style = "width:90%;height:auto;border:1px solid #000000;margin:0 auto">
+      <div id = "like" style="width: 25%;float:left">      
+          <div>
+              <canvas id="like_Chart" width="400" height="450"></canvas>
+      	  </div>
+          <div style = "text-align:center;font-weight:bold;font-size:13">点赞用户获取的like分布图</div>
+       </div>
 
-    <div style="width: 50%">
-         ssss
-        <canvas id="myChart" width="400" height="450"></canvas>
-	</div>
+       <div id = "thank" style="width:25%;float:left">      
+          <div >
+              <canvas id="thank_Chart" width="400" height="450"></canvas>
+          </div>
+          <div style = "text-align:center;font-weight:bold;font-size:13">点赞用户获取的thank分布图</div>
+       </div>
+
+       <div id = "question" style="width:25%;float:left">      
+          <div >
+              <canvas id="question_Chart" width="400" height="450"></canvas>
+          </div>
+           <div style = "text-align:center;font-weight:bold;font-size:13">点赞用户提出的question分布图</div>
+       </div>
+
+       <div id = "answer" style="width:25%;float:left">      
+          <div >
+              <canvas id="answer_Chart" width="400" height="450"></canvas>
+          </div>
+           <div style = "text-align:center;font-weight:bold;font-size:13">点赞用户回答的answer分布图</div>
+       </div>
+    </div>
   </body>
   
 <script type = "text/javaScript">
+window.onload = function()
+{
+  $('#like').hide();
+  $('#thank').hide();
+  $('#answer').hide();
+  $('#question').hide();
+}
 function getUrl()
 {
    
@@ -56,25 +87,66 @@ function postdata(url)
 
 function showPie(data)
 {
-		result = eval(data)
-		console.log(result['num'][0])
-		var pieData = [
-				{
-					value: result['num'][0],
-					color:"#F38630"
-				},
-				{
-					value : 50,
-					color : "#E0E4CC"
-				},
-				{
-					value : 100,
-					color : "#69D2E7"
-				}
-			
-			];
+		result = eval(data);
+    $('#like').show();
+    $('#thank').show();
+    $('#question').show();
+    $('#answer').show();
+		var likeChartData = {
+      labels : result['like_value'],
+      datasets : [
+        {
+          fillColor : "rgba(220,220,220,0.5)",
+          strokeColor : "rgba(220,220,220,1)",
+          data : result['like_num']
+        },
+      ]
+      
+    }
 
-	var myPie = new Chart(document.getElementById("myChart").getContext("2d")).Pie(pieData);
+    var thankChartData = {
+      labels : result['thank_value'],
+      datasets : [
+        {
+          fillColor : "rgba(220,220,220,0.5)",
+          strokeColor : "rgba(220,220,220,1)",
+          data : result['thank_num']
+        },
+      ]
+      
+    }
+
+    var questionChartData = {
+      labels : result['question_value'],
+      datasets : [
+        {
+          fillColor : "rgba(220,220,220,0.5)",
+          strokeColor : "rgba(220,220,220,1)",
+          data : result['question_num']
+        },
+      ]
+      
+    }
+
+    var answerChartData = {
+      labels : result['answer_value'],
+      datasets : [
+        {
+          fillColor : "rgba(220,220,220,0.5)",
+          strokeColor : "rgba(220,220,220,1)",
+          data : result['answer_num']
+        },
+      ]
+      
+    }
+
+  var likeLine = new Chart(document.getElementById("like_Chart").getContext("2d")).Bar(likeChartData);
+
+  var thankLine = new Chart(document.getElementById("thank_Chart").getContext("2d")).Bar(thankChartData);
+
+  var questionLine = new Chart(document.getElementById("question_Chart").getContext("2d")).Bar(questionChartData);
+
+  var answerLine = new Chart(document.getElementById("answer_Chart").getContext("2d")).Bar(answerChartData);
 	
 	
 }

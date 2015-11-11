@@ -45,7 +45,7 @@ class zhihuAnj():
     def anjPayLoad(self,payLoad):
 #         reg = re.compile(r'<[^>]+>', re.S)
 #         result = reg.sub('',payLoad)
-        print payLoad
+#         print payLoad
         soup = BeautifulSoup(payLoad)
         name = soup.find('a',class_='zg-link')
         info = soup.find('span',class_='bio hidden-phone')

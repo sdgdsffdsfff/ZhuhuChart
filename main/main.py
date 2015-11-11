@@ -18,7 +18,7 @@ class ZhihuThread(threading.Thread):
         test = zhihuAnj(url)
         ret = test.start();
         brain = Brain(ret)  
-        print brain.getLike()
+        print brain.getLikeByRange()
         
 if __name__ == '__main__':
     zhihuThread = ZhihuThread();

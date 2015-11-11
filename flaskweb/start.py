@@ -20,7 +20,7 @@ def zhihu():
     print ret
     brain = Brain(ret)
     
-    return brain.getLike()
+    return brain.getAll()
 
 
 
