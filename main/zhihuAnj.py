@@ -25,14 +25,21 @@ class zhihuAnj():
         #
         total = jsonRet['paging']['total']
         #
-        next = jsonRet['paging']['next']
-        follows = next.split('follows=')
-        print follows[1]
-        return total,follows[1]
+        if int(total)>10:
+            next = jsonRet['paging']['next']
+            follows = next.split('follows=')
+            print follows[1]
+            return total,follows[1]
+        else:
+            return total,None
 
     
     def getPayLoad(self,total,offset,follows):
-        url = self.m_url + "/voters_profile?total="+str(total)+"&offset="+str(offset)+"&follows="+follows;
+        if follows != None:
+            url = self.m_url + "/voters_profile?total="+str(total)+"&offset="+str(offset)+"&follows="+follows
+        else:
+            url = self.m_url + "/voters_profile"
+            
         html = self.getHtml(url)
         try:
             jsonRet = json.loads(html)
