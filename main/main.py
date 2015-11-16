@@ -7,6 +7,7 @@ import threading
 from zhihuAnj import zhihuAnj
 from brain import Brain
 import urllib2
+from user import User
 class ZhihuThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -18,7 +19,9 @@ class ZhihuThread(threading.Thread):
         test = zhihuAnj(url)
         ret = test.start();
         brain = Brain(ret)  
-        print brain.getLikeByRange()
+#         print brain.getLikeByRange()
+        user = User("http://www.zhihu.com/question/29739045")
+        print user.start()
         
 if __name__ == '__main__':
     zhihuThread = ZhihuThread();

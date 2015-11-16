@@ -2,5 +2,6 @@ eclipse.preferences.version=1
 encoding//flaskweb/start.py=utf-8
 encoding//flaskweb/templates/index.html=UTF-8
 encoding//main/brain.py=utf-8
+encoding//main/user.py=utf-8
 encoding//main/zhihuAnj.py=utf-8
 encoding/<project>=UTF-8
