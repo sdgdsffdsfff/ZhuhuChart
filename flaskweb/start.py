@@ -20,20 +20,22 @@ def index():
         user = User(url)
         results = user.start() 
         log = Log()
-        log.i("url:"+url + "  Toatal Time:"+str(time.time()-startTime))
-        return render_template('index.html',results = results,i=1)
+        log.i("url:"+url + "  getUserInfo Time:"+str(time.time()-startTime))
+        return render_template('index.html',results = results)
     else:
         return render_template('index.html')
 
 @app.route('/url',methods=['GET', 'POST'])
 def zhihu():
+    log = Log() 
+    startTime = time.time()
     searchUrl = request.form["url"]
     test = zhihuAnj(searchUrl)
     ret = test.start();  
-    print ret
     brain = Brain(ret)
-    
-    return brain.getAll()
+    results = brain.getAll()
+    log.i("url:"+searchUrl + "  getAll Time:"+str(time.time()-startTime))
+    return results
 
 @app.route('/qurl',methods=['POST'])
 def getUserInfo():

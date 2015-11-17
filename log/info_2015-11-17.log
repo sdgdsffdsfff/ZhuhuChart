@@ -1,6 +1,10 @@
-2015-11-17 12:25:09,311 - Log.py - [line:38] - INFO - 0.322000026703
-2015-11-17 12:25:17,892 - Log.py - [line:38] - INFO - start anj
-2015-11-17 12:25:17,892 - Log.py - [line:38] - INFO - start anj
-2015-11-17 14:08:23,434 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/20002925  Toatal Time:0.335000038147
-2015-11-17 14:08:27,174 - Log.py - [line:38] - INFO - start anj
-2015-11-17 14:08:27,174 - Log.py - [line:38] - INFO - start anj
+2015-11-17 14:32:08,602 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/37544898  getUserInfo Time:0.804999828339
+2015-11-17 14:32:22,769 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:8.90100002289
+2015-11-17 14:32:22,769 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:8.90100002289
+2015-11-17 14:32:22,769 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:8.90100002289
+2015-11-17 14:33:19,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/37544898  getUserInfo Time:0.391000032425
+2015-11-17 14:34:21,500 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:58.4839999676
+2015-11-17 14:34:21,500 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:58.4839999676
+2015-11-17 14:34:21,500 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:58.4839999676
+2015-11-17 14:38:10,707 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24442675  getAll Time:0.315999984741
+2015-11-17 14:38:10,707 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24442675  getAll Time:0.315999984741
