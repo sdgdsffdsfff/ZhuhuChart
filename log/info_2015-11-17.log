@@ -8,3 +8,22 @@
 2015-11-17 14:34:21,500 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24426637  getAll Time:58.4839999676
 2015-11-17 14:38:10,707 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24442675  getAll Time:0.315999984741
 2015-11-17 14:38:10,707 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24442675  getAll Time:0.315999984741
+2015-11-17 14:47:44,338 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/37507896  getUserInfo Time:0.994999885559
+2015-11-17 14:47:44,338 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/37507896  getUserInfo Time:0.994999885559
+2015-11-17 14:47:44,338 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/37507896  getUserInfo Time:0.994999885559
+2015-11-17 14:48:24,506 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24427315  getAll Time:38.6859998703
+2015-11-17 14:48:24,506 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24427315  getAll Time:38.6859998703
+2015-11-17 14:48:24,506 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24427315  getAll Time:38.6859998703
+2015-11-17 14:48:24,506 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24427315  getAll Time:38.6859998703
+2015-11-17 14:48:24,506 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/24427315  getAll Time:38.6859998703
+2015-11-17 17:08:16,423 - Log.py - [line:38] - INFO - IP:127.0.0.1 Web Browse:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36
+2015-11-17 17:18:48,239 - Log.py - [line:38] - INFO - IP:127.0.0.1 Web Browse:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36
+2015-11-17 17:18:48,239 - Log.py - [line:38] - INFO - IP:127.0.0.1 Web Browse:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36
+2015-11-17 17:19:45,634 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/24137686  getUserInfo Time:2.42899990082
+2015-11-17 17:19:45,634 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/24137686  getUserInfo Time:2.42899990082
+2015-11-17 17:19:45,634 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/question/24137686  getUserInfo Time:2.42899990082
+2015-11-17 17:20:20,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/7759993  getAll Time:30.7849998474
+2015-11-17 17:20:20,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/7759993  getAll Time:30.7849998474
+2015-11-17 17:20:20,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/7759993  getAll Time:30.7849998474
+2015-11-17 17:20:20,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/7759993  getAll Time:30.7849998474
+2015-11-17 17:20:20,875 - Log.py - [line:38] - INFO - url:http://www.zhihu.com/answer/7759993  getAll Time:30.7849998474

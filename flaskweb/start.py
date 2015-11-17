@@ -14,15 +14,16 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET','POST'])
 def index():
+    log = Log()
     if request.method == 'POST':
         startTime = time.time()
         url = request.form["url"]
         user = User(url)
-        results = user.start() 
-        log = Log()
+        results = user.start()      
         log.i("url:"+url + "  getUserInfo Time:"+str(time.time()-startTime))
         return render_template('index.html',results = results)
     else:
+        log.i("IP:"+str(request.remote_addr)+" Web Browse:"+str(request.user_agent))
         return render_template('index.html')
 
 @app.route('/url',methods=['GET', 'POST'])
