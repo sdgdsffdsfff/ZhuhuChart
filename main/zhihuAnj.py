@@ -4,12 +4,13 @@ import urllib
 from json import JSONDecoder,JSONEncoder
 import json
 from bs4 import BeautifulSoup
-
+from utils.Log import Log
 class zhihuAnj():
 
     def __init__(self,url):
-        self.m_url = url;
-        self.m_ret = dict();
+        self.m_url = url
+        self.m_ret = dict()
+        self.m_log = Log()
         
     def getHtml(self,url):
 #         url = "http://www.zhihu.com/answer/23966524"
@@ -44,7 +45,7 @@ class zhihuAnj():
         try:
             jsonRet = json.loads(html)
         except Exception,e:
-            print e
+            self.m_log.e(e)
             return
         payLoad = jsonRet['payload']
         return payLoad
@@ -86,8 +87,6 @@ class zhihuAnj():
             answer = 0
         
         result = {'name':nameStr,'info':infoStr,'like':like,'thank':thank,'question':question,'answer':answer}
-        print result
-#         print self.appendDic(result)
         return result
     
     def appendDic(self,result):
@@ -97,7 +96,6 @@ class zhihuAnj():
         return self.m_ret
         
     def start(self):
-#         ȡtotal,follow
         total,follows = self.getInfo(self.m_url+"/voters_profile")
         offsets = total/10;
         for i in range(offsets):
@@ -105,14 +103,5 @@ class zhihuAnj():
             for s in payLoad:
                 result = self.anjPayLoad(s)
                 self.appendDic(result)
-#         return json.dumps(self.m_ret)
-        return self.m_ret
-
-        
-# if __name__ == '__main__':
-#      url = "http://www.zhihu.com/answer/23990424"
-# #      test = zhihuAnj("http://www.zhihu.com/answer/23966524")
-#      test = zhihuAnj(url)
-#      test.start();  
-#         
+        return self.m_ret      
         
